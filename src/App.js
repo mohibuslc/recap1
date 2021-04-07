@@ -1,6 +1,8 @@
     import React from 'react';
 
     import './App.css';
+    import {useState} from 'react';
+
 
 
     function App(){
@@ -9,7 +11,8 @@
 
       return(
         <div style={{textAlign:"center"}}>
-        <Friends name ={info[0] } age="89"></Friends>
+          <MovieCounter></MovieCounter>
+        <Friends name ={info[0]} age="89"></Friends>
         <Friends name ={info[1]}></Friends>
         <Friends name ={info[2]}></Friends>
         <Friends name ={info[3]}></Friends>
@@ -19,13 +22,35 @@
 
       );
             }
+           function MovieCounter(){
+
+             //example of usestate:
+            //const [first , second]=['ABc','DER'];
+            //console.log(first,second);
+
+
+            const [ count , setCount]=useState(3);
+
+            const handleClick = () => setCount(count + 1);
+            
+
+           // const Count = 5;
+              return (
+
+                <div>
+                  <button onClick= {handleClick}> Add Movie</button>
+                  <h5> Number Of Movies :{count} </h5>
+
+                </div>
+              )
+            }
 
     function Friends(props){
      console.log(props);
       const design ={
 
         margin:'10px',
-        border: '2px solid red',
+        border: '2px solid red'
         
         
       }
